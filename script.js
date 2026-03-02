@@ -1,9 +1,15 @@
 function firstNonRepeatedChar(str) {
  // Write your code here
 
-	for(let i=0; i<str.length-1; i++){
-		if(str[i] != str[i+1]){
-			return str[i];
+	let hm = {};
+
+	for(let ch of str){
+		hm[ch] = (hm[ch] || 0) + 1;
+	}
+
+	for(let ch of str){
+		if (hm[ch] === 1){
+			return ch;
 		}
 	}
 
